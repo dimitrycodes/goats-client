@@ -5,26 +5,26 @@ import ApiContext from './ApiContext';
 import logo from './logo.svg';
 import './App.css';
 
-import Home from './Views/Home'
+import Home from './Views/Home';
 
 class App extends Component {
   state = {
     sports: []
   }
 
-  componentDidMount(){
+  componentDidMount() {
     Promise.all([
       fetch(`${config.API_ENDPOINT}/sports`)
     ])
-    .then(([sportsResponse]) => {
-      if(!sportsResponse.ok) return sportsResponse.json().then(e => Promise.reject(e));
-      return Promise.all([sportsResponse.json()]);
-    })
-    .then(([sports]) => {
-      this.setState({sports})
-      console.log(sports, 'this is line 24 app.js')
-    })
-    .catch((error) => {console.log({error})})
+      .then(([sportsResponse]) => {
+        if (!sportsResponse.ok) return sportsResponse.json().then(e => Promise.reject(e));
+        return Promise.all([sportsResponse.json()]);
+      })
+      .then(([sports]) => {
+        this.setState({ sports })
+        console.log(sports, 'this is line 24 app.js')
+      })
+      .catch((error) => { console.log({ error }) })
   }
   handleAddSports = (sports) => {
     this.setState({
@@ -33,12 +33,12 @@ class App extends Component {
   };
   handleDeleteSports = (sportsId) => {
     this.setState({
-      sports: this.state.sports.filter((sport) => sport.id !== sportsId) 
+      sports: this.state.sports.filter((sport) => sport.id !== sportsId)
     });
   };
   handleUpdateSports = (updateSports) => {
-    const newUpdatedSports = this.state.sports.map((sport) => 
-      sport.id === updateSports.id ? updateSports : sport 
+    const newUpdatedSports = this.state.sports.map((sport) =>
+      sport.id === updateSports.id ? updateSports : sport
     );
     this.setState({
       sports: newUpdatedSports,
@@ -67,7 +67,8 @@ class App extends Component {
             </header>
             <div className="main">
               <Switch>
-                <Route exact path="/" component={Home} />
+                {/* <Route exact path="/" component={Home} /> */}
+                <Route exact path="/home" component={Home} />
               </Switch>
             </div>
           </Router>
