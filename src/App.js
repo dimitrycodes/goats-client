@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import config from './config';
 import ApiContext from './ApiContext';
-import logo from './logo.svg';
 import './App.css';
 
 import Home from './Views/Home';
+import GreatestPlayers from "./Views/GreatestPlayers";
+import MyGreatPlayers from "./Views/MyGreatPlayers";
+import CreateList from "./Views/CreateList";
 
 class App extends Component {
   state = {
@@ -26,16 +28,19 @@ class App extends Component {
       })
       .catch((error) => { console.log({ error }) })
   }
+
   handleAddSports = (sports) => {
     this.setState({
       sports: [...this.state.sports, sports]
     })
   };
+
   handleDeleteSports = (sportsId) => {
     this.setState({
       sports: this.state.sports.filter((sport) => sport.id !== sportsId)
     });
   };
+
   handleUpdateSports = (updateSports) => {
     const newUpdatedSports = this.state.sports.map((sport) =>
       sport.id === updateSports.id ? updateSports : sport
@@ -52,29 +57,30 @@ class App extends Component {
       deleteSports: this.handleDeleteSports,
       updateSports: this.handleUpdateSports,
     };
-    console.log(value, 'this is the render value')
+
     return (
       <ApiContext.Provider value={value}>
         <div className="App">
           <Router>
             <header className="App-header">
-              <h1>Goat App</h1>
-              <nav className="navbar">
-                <a href="/home" className="">
-                  Home
-                </a>
+              <nav role="navigation">
+                Nav
               </nav>
             </header>
             <div className="main">
               <Switch>
-                {/* <Route exact path="/" component={Home} /> */}
-                <Route exact path="/home" component={Home} />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/players" component={GreatestPlayers} />
+                <Route exact path="/myplayers" component={MyGreatPlayers} />
+                <Route exact path="/createlist" component={CreateList} />
               </Switch>
             </div>
+            <footer role="content-info">Footer</footer>
           </Router>
         </div>
       </ApiContext.Provider>
     );
   }
 }
+
 export default App;
