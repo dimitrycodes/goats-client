@@ -23,7 +23,9 @@ class App extends Component {
         return Promise.all([sportsResponse.json()]);
       })
       .then(([sports]) => {
-        this.setState({ sports })
+        if (sports.length) {
+          this.setState({ sports })
+        }
         console.log(sports, 'this is line 24 app.js')
       })
       .catch((error) => { console.log({ error }) })
@@ -64,7 +66,9 @@ class App extends Component {
           <Router>
             <header className="App-header">
               <nav role="navigation">
-                Nav
+                <div>
+                  <a href="/">Home</a>
+                </div>
               </nav>
             </header>
             <div className="main">

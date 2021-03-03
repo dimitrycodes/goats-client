@@ -1,7 +1,42 @@
 import React, { Component } from "react";
 import './GreatestPlayers.css';
+import config from '../config';
 
 class GreatestPlayers extends Component {
+  state = {
+    sports: [{
+      game: 'Soccer',
+      players: [
+        {
+          name: 'Anthony'
+        },
+        {
+          name: 'Chirag'
+        },
+        {
+          name: 'derik'
+        }
+      ]
+    }]
+  }
+
+  componentDidMount() {
+    Promise.all([
+      fetch(`${config.API_ENDPOINT}/sports`)
+    ])
+      .then(([sportsResponse]) => {
+        if (!sportsResponse.ok) return sportsResponse.json().then(e => Promise.reject(e));
+        return Promise.all([sportsResponse.json()]);
+      })
+      .then(([sports]) => {
+        if (sports.length) {
+          console.log("")
+          this.setState({ sports })
+        }
+        console.log(sports, 'this is line 24 app.js')
+      })
+      .catch((error) => { console.log({ error }) })
+  }
 
   render() {
     return (
@@ -12,14 +47,12 @@ class GreatestPlayers extends Component {
         </header>
         <section>
           <header>
-            <h3>Soccer</h3>
+            <h3>{this.state.sports[0].game}</h3>
           </header>
           <ol>
-            <li>Player</li>
-            <li>Player</li>
-            <li>Player</li>
-            <li>Player</li>
-            <li>Player</li>
+            {this.state.sports[0].players.map((player) =>
+              <li>{player.name}</li>
+            )}
           </ol>
         </section>
         <section>
