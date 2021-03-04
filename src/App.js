@@ -65,11 +65,12 @@ class App extends Component {
         <div className="App">
           <Router>
             <header className="App-header">
-              <nav role="navigation">
+              {/* <nav role="navigation">
                 <div>
                   <a href="/">Home</a>
                 </div>
-              </nav>
+              </nav> */}
+              <a href="/">Home</a>
             </header>
             <div className="main">
               <Switch>
@@ -79,7 +80,7 @@ class App extends Component {
                 <Route exact path="/createlist" component={CreateList} />
               </Switch>
             </div>
-            <footer role="content-info">Footer</footer>
+            <footer className="app-footer" role="content-info">Footer</footer>
           </Router>
         </div>
       </ApiContext.Provider>

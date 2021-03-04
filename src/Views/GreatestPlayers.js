@@ -59,10 +59,11 @@ class GreatestPlayers extends Component {
           <header>
             <h3>Build Your Own of Greats</h3>
             <p>Create Your own List!</p>
-          </header>
-          <form class='signup-form'>
-            <a type='button' href='/createlist'>Create List</a>
+            <form class='signup-form'>
+            <a href='/createlist'><button type='button' >Create List</button></a>
           </form>
+          </header>
+          
         </section>
       </>
     );

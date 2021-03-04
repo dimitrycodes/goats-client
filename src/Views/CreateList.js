@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './CreateList.css';
+import config from '../config';
 
 class CreateList extends Component {
 
@@ -16,20 +17,20 @@ class CreateList extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // const requestOptions = {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(this.state)
-    // };
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(this.state)
+    };
     window.location.reload();
-    // fetch(`${config.API_ENDPOINT}/sports`, requestOptions)
-    //   .then(response => {
-    //     console.log("response==========>", response)
-    //     response.json()
-    //   })
-    //   .then(data => {
-    //     console.log("data===============>", data)
-    //   });
+    fetch(`${config.API_ENDPOINT}/sports`, requestOptions)
+      .then(response => {
+        console.log("response==========>", response)
+        response.json()
+      })
+      .then(data => {
+        console.log("data===============>", data)
+      });
   }
 
   render() {
@@ -37,8 +38,8 @@ class CreateList extends Component {
       <>
         <section>
           <form id="recordDream" onSubmit={this.handleSubmit} method='post'>
-            <section class="form-section overview-section">
-              <label for="Sport">Sport</label>
+            <section className="form-section overview-section">
+              <label htmlFor="Sport">Sport</label>
               <select
                 type="text"
                 name="dream-title"
@@ -58,8 +59,8 @@ class CreateList extends Component {
                 <option value='Baseball'>Baseball</option>
               </select>
             </section>
-            <section class="form-section overview-section">
-              <label for="dream-summary">Player's Name</label>
+            <section className="form-section overview-section">
+              <label htmlFor="dream-summary">Player's Name</label>
               <input
                 name="dream-summary"
                 rows="15"
@@ -71,8 +72,8 @@ class CreateList extends Component {
                 }}
               />
             </section>
-            <section class="hours-slept-container" class="form-section">
-              <label for="hours-slept">Championships Won</label>
+            <section className="hours-slept-container" className="form-section">
+              <label htmlFor="hours-slept">Championships Won</label>
               <input
                 type="number"
                 name="hours-slept"
@@ -84,7 +85,7 @@ class CreateList extends Component {
                   })
                 }}
               />
-              <label for="hours-slept">MVP Awards</label>
+              <label htmlFor="hours-slept">MVP Awards</label>
               <input
                 type="number"
                 name="hours-slept"
@@ -96,7 +97,7 @@ class CreateList extends Component {
                   })
                 }}
               />
-              <label for="hours-slept">Longevity/Years Played</label>
+              <label htmlFor="hours-slept">Longevity/Years Played</label>
               <input
                 type="number"
                 name="hours-slept"
@@ -108,7 +109,7 @@ class CreateList extends Component {
                   })
                 }}
               />
-              <label for="hours-slept">All time Career Point</label>
+              <label htmlFor="hours-slept">All time Career Point</label>
               <input
                 type="text"
                 name="hours-slept"
@@ -120,7 +121,7 @@ class CreateList extends Component {
                   })
                 }}
               />
-              <label for="hours-slept">All Time Career Assist</label>
+              <label htmlFor="hours-slept">All Time Career Assist</label>
               <input
                 type="text"
                 name="hours-slept"
@@ -132,7 +133,7 @@ class CreateList extends Component {
                   })
                 }}
               />
-              <label for="hours-slept">Scoring Efficiency</label>
+              <label htmlFor="hours-slept">Scoring Efficiency</label>
               <input
                 type="text"
                 name="hours-slept"
@@ -145,7 +146,7 @@ class CreateList extends Component {
                 }}
               />
             </section>
-            <section class="button-section">
+            <section className="button-section">
               <button type="submit" >Submit</button>
               <button type="reset">Reset</button>
             </section>

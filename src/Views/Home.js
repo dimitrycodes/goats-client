@@ -4,7 +4,7 @@ import './Home.css';
 class Home extends Component {
   render() {
     return (
-      <>
+      <section>
         <header role="banner">
           <h1>Greatest Players in Sports</h1>
         </header>
@@ -15,7 +15,7 @@ class Home extends Component {
         <section>
           <a href='/myplayers'> My top 5 players in Each Sport 💪</a>
         </section>
-      </>
+      </section>
     );
   }
 }
