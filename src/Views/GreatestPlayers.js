@@ -29,10 +29,10 @@ class GreatestPlayers extends Component {
         return Promise.all([sportsResponse.json()]);
       })
       .then(([sports]) => {
-        if (sports.length) {
-          console.log("")
-          this.setState({ sports })
-        }
+        // if (sports.length) {
+        //   console.log("")
+        //   this.setState({ sports })
+        // }
         console.log(sports, 'this is line 24 app.js')
       })
       .catch((error) => { console.log({ error }) })
