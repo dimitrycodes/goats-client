@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './CreateList.css';
 import config from '../config';
+import { Redirect } from "react-router-dom";
 
 class CreateList extends Component {
 
@@ -22,16 +23,19 @@ class CreateList extends Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(this.state)
     };
-    window.location.reload();
+    // window.location.reload();
     console.log("requestOptions", requestOptions);
     fetch(`${config.API_ENDPOINT}/sports`, requestOptions)
       .then(response => {
         console.log("response==========>", response)
         response.json()
+        window.history.back('myplayers');
+        
       })
       .then(data => {
         console.log("data===============>", data)
       });
+      // return <Redirect to="/" />;
   }
 
   render() {
@@ -48,6 +52,7 @@ class CreateList extends Component {
                 required
                 defaultValue="Soccer"
                 onChange={(e) => {
+                  console.log(e.target.value)
                   this.setState({
                     sportsname: e.target.value,
                   })
