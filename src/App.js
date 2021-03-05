@@ -70,9 +70,9 @@ class App extends Component {
                   <a href="/">Home</a>
                 </div>
               </nav> */}
-              <a href="/">Home</a>
+              <a href="/" className="title">GOATS</a>
             </header>
-            <div className="main">
+            <div className="main-container">
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/players" component={GreatestPlayers} />

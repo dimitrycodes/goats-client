@@ -40,32 +40,31 @@ class GreatestPlayers extends Component {
 
   render() {
     return (
-      <>
+      <div className="">
+      <section className="main-header">
         <header role="banner">
-          <h1>Greatest Players</h1>
-          <h2>Yes, of all time.</h2>
+          <h1 className="head-title">Greatest Players</h1>
+          <h2 className="head-sub-title">Yes, of all time.</h2>
         </header>
-        <section>
-          <header>
-            <h3>{this.state.sports[0].game}</h3>
+        </section>
+        <section class="player">
+          <header className="game-head">
+            <h3 className="game-title">{this.state.sports[0].game}</h3>
           </header>
-          <ol>
-            {this.state.sports[0].players.map((player) =>
-              <li>{player.name}</li>
+          <ol className="list">
+            {this.state.sports[0].players.map((player, index) =>
+              <li key={index}>{player.name}</li>
             )}
           </ol>
-        </section>
-        <section>
-          <header>
-            <h3>Build Your Own of Greats</h3>
-            <p>Create Your own List!</p>
-            <form class='signup-form'>
-            <a href='/createlist'><button type='button' >Create List</button></a>
+          <header className="list-head">
+            <h3 className="list-main-head">Build Your Own of Greats</h3>
+            <p className="list-sub-head">Create Your own List!</p>
+            <form className='form'>
+            <a href='/createlist'><button type='button' className="block-btn">Create List</button></a>
           </form>
           </header>
-          
         </section>
-      </>
+      </div>
     );
   }
 }

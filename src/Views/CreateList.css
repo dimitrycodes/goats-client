@@ -26,18 +26,6 @@
     z-index: 10;
   }
   
-  header {
-    padding: 45px 15px;
-  }
-  
-  section {
-    padding: 30px 15px 0;
-  }
-  
-  section:nth-child(even) {
-    background-color: #ddd;
-  }
-  
   p, h2 {
     margin: 23px 0;
   }
@@ -45,12 +33,6 @@
   h2 {
     font-weight: 700;
     font-size: 20px;
-  }
-  
-  form {
-    margin: 0 auto;
-    padding: 0 0 40px;
-    max-width: 650px;
   }
   
   label p {
@@ -61,30 +43,22 @@
     margin-top: 15px;
   }
   
-  form {
-    /* text-align: left; */
-  }
-  
   label {
     display: block;
   }
   
-  input[type="number"] {
-    width: 50px;
-  }
-  
   .form-section {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    background-color: #FFF;
+    border-radius: 5px;
+    padding: 10px;
   }
   
   .button-section {
     padding: 0 0 0 15px;
   }
   
-  .overview-section input,
-  .overview-section textarea {
-    width: 100%;
-  }
+  
   .dream-type-section label {
     display: inline;
   }
@@ -112,4 +86,48 @@
   
   .dream-stat {
     color: blue;
+  }
+
+  /* select {
+    padding: 10px;
+    width: 80%;
+    font-size: 20px;
+  } */
+
+  select, input {
+    padding: 10px;
+    font-size: 20px;
+    width: 100%;
+    border: 1px solid #a5a5a5;
+    border-radius: 3px;
+  }
+
+  label {
+    color: #7b7a7a;
+    margin-bottom: 5px;
+  }
+
+  .list {
+
+    text-align: left;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 10px 6px 10px 35px;
+    /* margin-left: 10px; */
+    margin: 10px;
+    margin-bottom: 25px;
+
+  }
+
+  .add-player{
+    color: #000;
+  }
+
+  .create-form {
+    text-align: left;
+    padding: 10px;
+  }
+
+  .form-submit{
+    margin-bottom: 50px;
   }

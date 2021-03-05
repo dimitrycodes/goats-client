@@ -38,4 +38,26 @@
   /* section:nth-child(even) {
     background-color: #ddd;
   } */
+
+  .no-link {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .main {
+    background-color:#fff !important;
+  }
   
+
+  .container-box{
+    margin: 25px;
+    border-radius: 10px;
+    padding: 8px;
+    /* position: relative; */
+    /* margin: auto; */
+    background-image: linear-gradient(to bottom, #f2b900, #ebb400, #e5af00, #deaa00, #d8a500);
+  }
+
+  .main-header{
+    background-color: black !important;
+  }

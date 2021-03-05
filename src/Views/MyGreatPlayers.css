@@ -25,19 +25,6 @@
     z-index: 10;
   }
   
-  header {
-    padding: 45px 15px;
-  }
-  
-  section {
-    min-height: 200px;
-    padding: 30px 15px;
-    background-color: #bbb;
-  }
-  
-  section:nth-child(even) {
-    background-color: #ddd;
-  }
   
   p {
     margin: 0 auto;
@@ -57,4 +44,61 @@
     left: 0;
     content: "here"
   }
+
+  .list-item {
+
+    background-color: #FFF;
+    padding: 15px;
+    padding-left: 35px;
+
+  }
+
+  .my-player{
+
+    text-align: left;
+    margin: 10px;
+    color: #000 !important;
+  }
+
+  .sort-head {
+
+    background-color: #fff;
+    padding: 14px;
+    border-radius: 10px;
+
+  }
+
+  .sort-select {
+
+    border-radius: 5px;
+    width: 100%;
+    border-color: #dadada;
+
+  }
+
+  .game-head{
+
+    color: #7b7a7a;
+    margin-bottom: 0px;
+
+  }
+
+  .game-sub-head {
+
+    margin-top: 5px;
+    color: #7b7a7a;
+    margin-left: 10px;
+
+  }
+
+  .btn-footer {
+
+    background-color: #fff;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+
+  }
+
+  
   

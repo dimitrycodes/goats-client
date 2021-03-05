@@ -4,18 +4,20 @@ import './Home.css';
 class Home extends Component {
   render() {
     return (
-      <section>
+      <div className="main">
+      <section className="main-header">
         <header role="banner">
           <h1>Greatest Players in Sports</h1>
         </header>
-        <section>
-          <a href='/players'>View The Top 5 Players in Each Sport
-          this will expand and each sport will come up</a>
         </section>
-        <section>
-          <a href='/myplayers'> My top 5 players in Each Sport 💪</a>
+        <section className="container-box">
+          <h3><a href='/players' className="no-link">View The Top 5 Players in Each Sport
+          this will expand and each sport will come up</a></h3>
         </section>
-      </section>
+        <section className="container-box">
+          <h3><a href='/myplayers' className="no-link"> My top 5 players in Each Sport 💪</a></h3>
+        </section>
+        </div>
     );
   }
 }

@@ -36,10 +36,10 @@ class CreateList extends Component {
   render() {
     return (
       <>
-        <section>
-          <form id="recordDream" onSubmit={this.handleSubmit} method='post'>
-            <section className="form-section overview-section">
-              <label htmlFor="Sport">Sport</label>
+        <section className="add-player">
+          <form id="recordDream" onSubmit={this.handleSubmit} method='post' className="create-form">
+            <div className="form-section">
+                <label htmlFor="Sport">Sport</label>
               <select
                 type="text"
                 name="dream-title"
@@ -58,8 +58,9 @@ class CreateList extends Component {
                 <option value='Hockey'>Hockey</option>
                 <option value='Baseball'>Baseball</option>
               </select>
-            </section>
-            <section className="form-section overview-section">
+            </div>
+            <div className="form-section ">
+
               <label htmlFor="dream-summary">Player's Name</label>
               <input
                 name="dream-summary"
@@ -71,8 +72,8 @@ class CreateList extends Component {
                   })
                 }}
               />
-            </section>
-            <section className="hours-slept-container" className="form-section">
+            </div>
+            <div className="form-section">
               <label htmlFor="hours-slept">Championships Won</label>
               <input
                 type="number"
@@ -85,6 +86,9 @@ class CreateList extends Component {
                   })
                 }}
               />
+              </div>
+
+<div className="form-section">
               <label htmlFor="hours-slept">MVP Awards</label>
               <input
                 type="number"
@@ -97,6 +101,8 @@ class CreateList extends Component {
                   })
                 }}
               />
+              </div>
+              <div className="form-section">
               <label htmlFor="hours-slept">Longevity/Years Played</label>
               <input
                 type="number"
@@ -109,6 +115,8 @@ class CreateList extends Component {
                   })
                 }}
               />
+              </div>
+              <div className="form-section">
               <label htmlFor="hours-slept">All time Career Point</label>
               <input
                 type="text"
@@ -121,6 +129,8 @@ class CreateList extends Component {
                   })
                 }}
               />
+              </div>
+              <div className="form-section">
               <label htmlFor="hours-slept">All Time Career Assist</label>
               <input
                 type="text"
@@ -133,6 +143,8 @@ class CreateList extends Component {
                   })
                 }}
               />
+              </div>
+              <div className="form-section">
               <label htmlFor="hours-slept">Scoring Efficiency</label>
               <input
                 type="text"
@@ -145,11 +157,12 @@ class CreateList extends Component {
                   })
                 }}
               />
-            </section>
-            <section className="button-section">
+              </div>
+              <div className="form-submit"> 
               <button type="submit" >Submit</button>
               <button type="reset">Reset</button>
-            </section>
+              </div>
+            {/* </section> */}
           </form>
         </section>
       </>
