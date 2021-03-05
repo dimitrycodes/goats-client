@@ -47,7 +47,7 @@ class GreatestPlayers extends Component {
           <h2 className="head-sub-title">Yes, of all time.</h2>
         </header>
         </section>
-        <section class="player">
+        <section className="player">
           <header className="game-head">
             <h3 className="game-title">{this.state.sports[0].game}</h3>
           </header>

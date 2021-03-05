@@ -4,11 +4,11 @@ import './Home.css';
 class Home extends Component {
   render() {
     return (
-      <div className="main">
-      <section className="main-header">
-        <header role="banner">
+      <div className="main ">
+      <section className="main-header main-bg">
+        {/* <header role="banner">
           <h1>Greatest Players in Sports</h1>
-        </header>
+        </header> */}
         </section>
         <section className="container-box">
           <h3><a href='/players' className="no-link">View The Top 5 Players in Each Sport

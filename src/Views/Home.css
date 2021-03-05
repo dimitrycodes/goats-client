@@ -60,4 +60,13 @@
 
   .main-header{
     background-color: black !important;
+    
+  }
+
+  .main-bg{
+    background-image: url('../athelete.png');
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   }

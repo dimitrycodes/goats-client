@@ -23,6 +23,7 @@ class CreateList extends Component {
       body: JSON.stringify(this.state)
     };
     window.location.reload();
+    console.log("requestOptions", requestOptions);
     fetch(`${config.API_ENDPOINT}/sports`, requestOptions)
       .then(response => {
         console.log("response==========>", response)
@@ -37,7 +38,7 @@ class CreateList extends Component {
     return (
       <>
         <section className="add-player">
-          <form id="recordDream" onSubmit={this.handleSubmit} method='post' className="create-form">
+          <form id="recordDream" onSubmit={this.handleSubmit} className="create-form">
             <div className="form-section">
                 <label htmlFor="Sport">Sport</label>
               <select

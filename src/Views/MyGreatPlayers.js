@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './MyGreatPlayers.css';
+import config from '../config';
 
 class MyGreatPlayers extends Component {
   state = {
@@ -38,37 +39,37 @@ class MyGreatPlayers extends Component {
   };
 
   handleEdit = () => {
-    // const requestOptions = {
-    //   method: 'PUT',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(this.state)
-    // };
+    const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(this.state)
+    };
     window.location.reload();
-    // fetch(`${config.API_ENDPOINT}/sports`, requestOptions)
-    //   .then(response => {
-    //     console.log("response==========>", response)
-    //     response.json()
-    //   })
-    //   .then(data => {
-    //     console.log("data===============>", data)
-    //   });
+    fetch(`${config.API_ENDPOINT}/sports`, requestOptions)
+      .then(response => {
+        console.log("response==========>", response)
+        response.json()
+      })
+      .then(data => {
+        console.log("data===============>", data)
+      });
   }
 
   handleDelete = () => {
-    // const requestOptions = {
-    //   method: 'PUT',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(this.state)
-    // };
+    const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(this.state)
+    };
     window.location.reload();
-    // fetch(`${config.API_ENDPOINT}/sports`, requestOptions)
-    //   .then(response => {
-    //     console.log("response==========>", response)
-    //     response.json()
-    //   })
-    //   .then(data => {
-    //     console.log("data===============>", data)
-    //   });
+    fetch(`${config.API_ENDPOINT}/sports`, requestOptions)
+      .then(response => {
+        console.log("response==========>", response)
+        response.json()
+      })
+      .then(data => {
+        console.log("data===============>", data)
+      });
   }
 
   render() {
@@ -79,7 +80,7 @@ class MyGreatPlayers extends Component {
           <h1 className="head-title">My List of Greats</h1>
         </header>
         </section>
-        <section class="my-player">
+        <section className="my-player">
           <div className="sort-head">
             <label htmlFor="Sport">Sort By:</label>
             <select className="sort-select"
