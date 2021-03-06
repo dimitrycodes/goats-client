@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import './MyGreatPlayers.css';
 import config from '../config';
-
+import EditList from './EditList';
 class MyGreatPlayers extends Component {
   state = {
+    count: 0,
+    info: {},
+    edit: false,
     sports: [{
       game: 'Soccer',
       players: [
@@ -37,7 +40,7 @@ class MyGreatPlayers extends Component {
       ]
     }]
   };
-
+ 
   componentDidMount() {
     Promise.all([
       fetch(`${config.API_ENDPOINT}/sports`)
@@ -49,14 +52,34 @@ class MyGreatPlayers extends Component {
       .then(([sports]) => {
         // if (sports.length) {
         //   console.log("")
-        this.setState({ sports })
+        this.setState({ sports, count: sports.length })
         // }
         //console.log(sports, 'this is line 54')
       })
       .catch((error) => { console.log({ error }) })
   }
-
-
+ 
+  handlePlayer = () =>{
+    
+    Promise.all([
+      fetch(`http://localhost:8000/sports/`)//(`${config.API_ENDPOINT}/sports`)
+    ])
+      .then(([sportsResponse]) => {
+        if (!sportsResponse.ok) return sportsResponse.json().then(e => Promise.reject(e));
+        return Promise.all([sportsResponse.json()]);
+      })
+      .then(([sports]) => {
+        // if (sports.length) {
+        //   console.log("")
+        console.log("we are here")
+        this.setState({ sports, count: sports.length })
+        this.setState(this.state);
+        // }
+        //console.log(sports, 'this is line 54')
+      })
+      .catch((error) => { console.log({ error }) })
+  }
+ 
   handleEdit = () => {
     const requestOptions = {
       method: 'PUT',
@@ -77,7 +100,7 @@ class MyGreatPlayers extends Component {
         console.log("data===============>", data)
       });
   }
-
+ 
   handleDelete = () => {
     const requestOptions = {
       method: 'DELETE',
@@ -94,24 +117,44 @@ class MyGreatPlayers extends Component {
       .then(data => {
         //update in state--> deleting current sport set to 1. Change logic to handle multiples sports.
         this.setState({
-          sports: []
+          sports: [],
+          count: 0
         })
-
+ 
         //update in API server
         console.log("DELETE===============>", data)
       });
   }
-
-  render() {
-    console.log("Checking Sports", this.state.sports)
-    return (
+ 
+  setEditing = (index)=>{
+    const info = this.state.sports[index];
+      this.setState({edit: !this.state.edit, info});
+  }
+ 
+  setEditingToo = ()=>{
+    this.setState({edit: !this.state.edit});
+  }
+  replaceStateContent = (sports)=>{
+    const newSports = this.state.sports.map(sport=>{
+      if(sport.id == sports.id){
+        return sports;
+      }
+      return sport;
+    })
+    this.setState({sports: newSports})
+  }
+  changeInfo = (info)=>{
+    this.setState({info})
+  }
+  renderContent = ()=>{
+    return(
       <div>
-        <section role="banner" className="main-header">
+      <section role="banner" className="main-header">
         <header role="banner">
           <h1 className="head-title">My List of Greats</h1>
         </header>
         </section>
-
+ 
 {/* SORT Button */}
         <section className="my-player">
           {/* <div className="sort-head">
@@ -148,20 +191,42 @@ class MyGreatPlayers extends Component {
             <h2 className="game-head">Soccer:</h2>
             <p className="game-sub-head">Last Updated: 03.07.2021</p>
             <ol className="list-item">
-              {this.state.sports.map((player, index) =>
-                <li key={index}>{player.playername}</li>
+              {this.state.sports.map((player, index) =>{
+                if (index<5) {
+                  return(
+                    <li key={index} onClick={()=>{this.setEditing(index);console.log(this.state);console.log(index);}}>
+                      <div className="playerDiv">
+                        <div>
+                          {player.playername}
+                        </div>
+                        <div>
+                            <button className="playerEditButton">Edit</button>
+                        </div>
+                      </div>
+                    </li>)
+                }
+              }
               )}
             </ol>
           </header>
           <div className="btn-footer">
           <blockquote>Does your list make sense according to the Stats?</blockquote>
-          <button onClick={this.handleEdit}>Edit</button>
           <button onClick={this.handleDelete}>Delete</button>
+          {this.state.count < 5 ? <a href='/createlist'><button type='button'>Create List</button></a> : null}
           </div>
         </section>
+      </div>
+    )
+  }
+  render() {
+    console.log("Checking Sports", this.state.sports)
+    return (
+      <div>
+        {this.state.edit ? <EditList info={this.state.info} editing={this.setEditingToo} changePlayers={this.replaceStateContent} changeInfo={this.changeInfo} handlePlayers={this.handlePlayer}/> : this.renderContent()}
+        
       </div>
     );
   }
 }
-
+ 
 export default MyGreatPlayers;

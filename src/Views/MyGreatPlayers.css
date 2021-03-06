@@ -100,5 +100,15 @@
 
   }
 
+  .playerDiv{
+    display: flex;
+    align-items: center;
+  }
+ 
+  .playerEditButton{
+    width: 100%;
+  }
+
+
   
   
