@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './MyGreatPlayers.css';
+import config from '../config';
 
 class MyGreatPlayers extends Component {
   state = {
@@ -38,47 +39,51 @@ class MyGreatPlayers extends Component {
   };
 
   handleEdit = () => {
-    // const requestOptions = {
-    //   method: 'PUT',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(this.state)
-    // };
+    const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(this.state)
+    };
     window.location.reload();
-    // fetch(`${config.API_ENDPOINT}/sports`, requestOptions)
-    //   .then(response => {
-    //     console.log("response==========>", response)
-    //     response.json()
-    //   })
-    //   .then(data => {
-    //     console.log("data===============>", data)
-    //   });
+    fetch(`${config.API_ENDPOINT}/sports`, requestOptions)
+      .then(response => {
+        console.log("response==========>", response)
+        response.json()
+      })
+      .then(data => {
+        console.log("data===============>", data)
+      });
   }
 
   handleDelete = () => {
-    // const requestOptions = {
-    //   method: 'PUT',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(this.state)
-    // };
+    const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(this.state)
+    };
     window.location.reload();
-    // fetch(`${config.API_ENDPOINT}/sports`, requestOptions)
-    //   .then(response => {
-    //     console.log("response==========>", response)
-    //     response.json()
-    //   })
-    //   .then(data => {
-    //     console.log("data===============>", data)
-    //   });
+    fetch(`${config.API_ENDPOINT}/sports`, requestOptions)
+      .then(response => {
+        console.log("response==========>", response)
+        response.json()
+      })
+      .then(data => {
+        console.log("data===============>", data)
+      });
   }
 
   render() {
     return (
-      <>
+      <div>
+        <section role="banner" className="main-header">
         <header role="banner">
-          <h1>My List of Greats</h1>
-          <section class="form-section overview-section">
-            <label for="Sport">Sort By:</label>
-            <select
+          <h1 className="head-title">My List of Greats</h1>
+        </header>
+        </section>
+        <section className="my-player">
+          <div className="sort-head">
+            <label htmlFor="Sport">Sort By:</label>
+            <select className="sort-select"
               type="text"
               name="dream-title"
               placeholder="Flying dream"
@@ -103,23 +108,25 @@ class MyGreatPlayers extends Component {
               <option value='careerAssistRanking'>All Time Career Assist</option>
               <option value='SscoringEfficiency'>Scoring Efficiency</option>
             </select>
-          </section>
-        </header>
-        <section>
+            </div>
+        {/* </section>
+        <section> */}
           <header>
-            <h2>Sport(Ex:{this.state.sports[0].game})</h2>
-            <p>Last Updated: 01.28.2017</p>
-            <ol>
-              {this.state.sports[0].players.map((player) =>
-                <li>{player.name}</li>
+            <h2 className="game-head">Sport(Ex:{this.state.sports[0].game})</h2>
+            <p className="game-sub-head">Last Updated: 01.28.2017</p>
+            <ol className="list-item">
+              {this.state.sports[0].players.map((player, index) =>
+                <li key={index}>{player.name}</li>
               )}
             </ol>
           </header>
+          <div className="btn-footer">
           <blockquote>Why your list makes sense according to the Stats?</blockquote>
           <button onClick={this.handleEdit}>Edit</button>
           <button onClick={this.handleDelete}>Delete</button>
+          </div>
         </section>
-      </>
+      </div>
     );
   }
 }

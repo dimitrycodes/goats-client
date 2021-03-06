@@ -6,7 +6,7 @@
     font-family: "Open Sans",
     sans-serif; 
     font-size: 20px;
-    color: #444;
+    color: #000;
     text-align: center;
     line-height: 1.5;
   }
@@ -14,7 +14,7 @@
   nav,
   footer {
     padding: 1% 0;
-    background-color: #aaa;
+    background-color: #469ef3;
   }
   
   nav {
@@ -25,17 +25,48 @@
     z-index: 10;
   }
   
-  header {
+  /* header {
     padding: 12% 0;
-  }
+  } */
   
   section {
     min-height: 200px;
     padding: 6% 0;
-    background-color: #bbb;
+    /* background-color: #bbb; */
   }
   
-  section:nth-child(even) {
+  /* section:nth-child(even) {
     background-color: #ddd;
+  } */
+
+  .no-link {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .main {
+    background-color:#fff !important;
   }
   
+
+  .container-box{
+    margin: 25px;
+    border-radius: 10px;
+    padding: 8px;
+    /* position: relative; */
+    /* margin: auto; */
+    background-image: linear-gradient(to bottom, #f2b900, #ebb400, #e5af00, #deaa00, #d8a500);
+  }
+
+  .main-header{
+    background-color: black !important;
+    
+  }
+
+  .main-bg{
+    background-image: url('../athelete.png');
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
