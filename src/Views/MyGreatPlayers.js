@@ -5,10 +5,10 @@ import config from '../config';
 class MyGreatPlayers extends Component {
   state = {
     sports: [{
-      game: 'soccer',
+      game: 'Soccer',
       players: [
         {
-          name: 'Anthony',
+          name: 'Edson Arantes do Nascimento(Pele)',
           championshipsWon: 1,
           careerPointsScored: 2,
           careerAssistRanking: 1,
@@ -17,7 +17,7 @@ class MyGreatPlayers extends Component {
           scoringEfficiency: 10
         },
         {
-          name: 'Chirag',
+          name: 'Diego Maradona',
           championshipsWon: 2,
           careerPointsScored: 1,
           careerAssistRanking: 1,
@@ -26,7 +26,7 @@ class MyGreatPlayers extends Component {
           scoringEfficiency: 3
         },
         {
-          name: 'derik',
+          name: 'Johann Cruyff',
           championshipsWon: 3,
           careerPointsScored: 5,
           careerAssistRanking: 5,
@@ -38,14 +38,33 @@ class MyGreatPlayers extends Component {
     }]
   };
 
+  componentDidMount() {
+    Promise.all([
+      fetch(`${config.API_ENDPOINT}/sports`)
+    ])
+      .then(([sportsResponse]) => {
+        if (!sportsResponse.ok) return sportsResponse.json().then(e => Promise.reject(e));
+        return Promise.all([sportsResponse.json()]);
+      })
+      .then(([sports]) => {
+        // if (sports.length) {
+        //   console.log("")
+        this.setState({ sports })
+        // }
+        //console.log(sports, 'this is line 54')
+      })
+      .catch((error) => { console.log({ error }) })
+  }
+
+
   handleEdit = () => {
     const requestOptions = {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(this.state)
     };
-    window.location.reload();
-    fetch(`${config.API_ENDPOINT}/sports`, requestOptions)
+    //window.location.reload();
+    fetch(`${config.API_ENDPOINT}/sports/:id`, requestOptions)
       .then(response => {
         console.log("response==========>", response)
         response.json()
@@ -57,22 +76,23 @@ class MyGreatPlayers extends Component {
 
   handleDelete = () => {
     const requestOptions = {
-      method: 'PUT',
+      method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(this.state)
     };
-    window.location.reload();
-    fetch(`${config.API_ENDPOINT}/sports`, requestOptions)
+    //window.location.reload();
+    fetch(`${config.API_ENDPOINT}/sports/:id`, requestOptions)
       .then(response => {
         console.log("response==========>", response)
         response.json()
       })
       .then(data => {
-        console.log("data===============>", data)
+        console.log("DELETE===============>", data)
       });
   }
 
   render() {
+    console.log("Checking Sports", this.state.sports)
     return (
       <div>
         <section role="banner" className="main-header">
@@ -80,6 +100,8 @@ class MyGreatPlayers extends Component {
           <h1 className="head-title">My List of Greats</h1>
         </header>
         </section>
+
+{/* SORT Button */}
         <section className="my-player">
           <div className="sort-head">
             <label htmlFor="Sport">Sort By:</label>
@@ -112,16 +134,16 @@ class MyGreatPlayers extends Component {
         {/* </section>
         <section> */}
           <header>
-            <h2 className="game-head">Sport(Ex:{this.state.sports[0].game})</h2>
-            <p className="game-sub-head">Last Updated: 01.28.2017</p>
+            <h2 className="game-head">Soccer:</h2>
+            <p className="game-sub-head">Last Updated: 03.07.2021</p>
             <ol className="list-item">
-              {this.state.sports[0].players.map((player, index) =>
-                <li key={index}>{player.name}</li>
+              {this.state.sports.map((player, index) =>
+                <li key={index}>{player.playername}</li>
               )}
             </ol>
           </header>
           <div className="btn-footer">
-          <blockquote>Why your list makes sense according to the Stats?</blockquote>
+          <blockquote>Does your list make sense according to the Stats?</blockquote>
           <button onClick={this.handleEdit}>Edit</button>
           <button onClick={this.handleDelete}>Delete</button>
           </div>

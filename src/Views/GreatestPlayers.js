@@ -5,16 +5,22 @@ import config from '../config';
 class GreatestPlayers extends Component {
   state = {
     sports: [{
-      game: 'Soccer',
+      game: 'Football',
       players: [
         {
-          name: 'Anthony'
+          name: 'Tom Brady'
         },
         {
-          name: 'Chirag'
+          name: 'Lawrence Taylor'
         },
         {
-          name: 'derik'
+          name: 'Jerry Rice'
+        },
+        {
+          name: 'Jim Brown'
+        },
+        {
+          name: 'Walter Payton'
         }
       ]
     }]
@@ -31,7 +37,7 @@ class GreatestPlayers extends Component {
       .then(([sports]) => {
         // if (sports.length) {
         //   console.log("")
-        //   this.setState({ sports })
+        //this.setState({ sports })
         // }
         console.log(sports, 'this is line 24 app.js')
       })

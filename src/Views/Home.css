@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
   }
-  
+
   body {
     font-family: "Open Sans",
     sans-serif; 
@@ -28,16 +28,38 @@
   /* header {
     padding: 12% 0;
   } */
-  
+
+
   section {
-    min-height: 200px;
+    min-height: 150px;
     padding: 6% 0;
     /* background-color: #bbb; */
   }
+
+  
   
   /* section:nth-child(even) {
     background-color: #ddd;
   } */
+
+  .s-style {
+    /*text-decoration: none;*/
+    color: black;
+    font-weight: bold;
+    margin: 0 5% 0 5%;
+    padding: 0%;
+  }
+
+  @media all and (min-width: 800px) {
+    .s-style {
+    text-decoration: solid;
+    color: black;
+    min-Height: 100px;
+    align-content: center;
+    padding: 0%; 
+    margin-left: 33%;
+  }
+}
 
   .no-link {
     text-decoration: none;

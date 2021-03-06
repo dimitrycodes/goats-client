@@ -59,10 +59,10 @@ class CreateList extends Component {
                 }}
               >
                 <option value='Soccer'>Soccer</option>
-                <option value='Football'>Football</option>
+                {/* <option value='Football'>Football</option>
                 <option value='Basketball'>Basketball</option>
                 <option value='Hockey'>Hockey</option>
-                <option value='Baseball'>Baseball</option>
+                <option value='Baseball'>Baseball</option> */}
               </select>
             </div>
             <div className="form-section ">

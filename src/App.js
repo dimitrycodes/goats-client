@@ -80,7 +80,7 @@ class App extends Component {
                 <Route exact path="/createlist" component={CreateList} />
               </Switch>
             </div>
-            <footer className="app-footer" role="content-info">Footer</footer>
+            <footer className="app-footer" role="content-info">Dimitry A | <a href='https://github.com/dimitrycodes'>@dimitrycodes</a></footer>
           </Router>
         </div>
       </ApiContext.Provider>
