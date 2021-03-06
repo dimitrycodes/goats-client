@@ -70,6 +70,10 @@ class MyGreatPlayers extends Component {
         response.json()
       })
       .then(data => {
+        //once edit is clicked it brings up every player in the list in the form(use CreateList from)
+        //const editView = this.state.sports.map(player => { // generate form})
+        //Choose players to edit.
+        //Once submit it will do an update request for everyone.
         console.log("data===============>", data)
       });
   }
@@ -81,12 +85,19 @@ class MyGreatPlayers extends Component {
       body: JSON.stringify(this.state)
     };
     //window.location.reload();
-    fetch(`${config.API_ENDPOINT}/sports/:id`, requestOptions)
+    //currently expecting 1 that is hardcoded in CreateList for just one sport. 
+    fetch(`${config.API_ENDPOINT}/sports/1`, requestOptions)
       .then(response => {
         console.log("response==========>", response)
         response.json()
       })
       .then(data => {
+        //update in state--> deleting current sport set to 1. Change logic to handle multiples sports.
+        this.setState({
+          sports: []
+        })
+
+        //update in API server
         console.log("DELETE===============>", data)
       });
   }
@@ -103,7 +114,7 @@ class MyGreatPlayers extends Component {
 
 {/* SORT Button */}
         <section className="my-player">
-          <div className="sort-head">
+          {/* <div className="sort-head">
             <label htmlFor="Sport">Sort By:</label>
             <select className="sort-select"
               type="text"
@@ -130,7 +141,7 @@ class MyGreatPlayers extends Component {
               <option value='careerAssistRanking'>All Time Career Assist</option>
               <option value='SscoringEfficiency'>Scoring Efficiency</option>
             </select>
-            </div>
+            </div> */}
         {/* </section>
         <section> */}
           <header>

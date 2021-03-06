@@ -5,8 +5,9 @@ import { Redirect } from "react-router-dom";
 
 class CreateList extends Component {
 
-  state = {
-    sportsname: '',
+  initState = {
+    sports_id: '1',
+    sportsname: 'Soccer',
     playername: '',
     championshipsWon: '',
     careerPointsScored: '',
@@ -15,6 +16,8 @@ class CreateList extends Component {
     yearsPlayed: '',
     scoringEfficiency: ''
   }
+
+  state = this.initState;
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -29,8 +32,11 @@ class CreateList extends Component {
       .then(response => {
         console.log("response==========>", response)
         response.json()
-        window.history.back('myplayers');
-        
+        console.log("What is state", this.initState);
+        //window.history.back('myplayers');
+        //const updateOnSubmit = 
+        this.setState(this.initState);
+        this.render();
       })
       .then(data => {
         console.log("data===============>", data)
