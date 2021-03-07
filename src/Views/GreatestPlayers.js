@@ -51,6 +51,10 @@ class GreatestPlayers extends Component {
         <header role="banner">
           <h1 className="head-title">Greatest Players</h1>
           <h2 className="head-sub-title">Yes, of all time.</h2>
+          <div className="head-p-title">
+            <p>See our Lists below. Make yours NOW.</p>
+          </div>
+           
         </header>
         </section>
         <section className="player">

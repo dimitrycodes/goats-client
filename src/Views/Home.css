@@ -29,9 +29,9 @@
     padding: 12% 0;
   } */
 
-
-  section {
-    min-height: 150px;
+  
+    section {
+    min-height: 0px;
     padding: 6% 0;
     /* background-color: #bbb; */
   }
@@ -50,14 +50,37 @@
     padding: 0%;
   }
 
+  .main-bg{
+    background-image: url('../athelete.png');
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 150px;
+  }
+
+  .main-header{
+    background-color: black !important;
+    
+  }
+
   @media all and (min-width: 800px) {
     .s-style {
     text-decoration: solid;
     color: black;
-    min-Height: 100px;
+    min-Height: 0px;
     align-content: center;
     padding: 0%; 
     margin-left: 33%;
+  }
+  .intro {
+    padding: 2%;
+  }
+  .main-bg {
+    background-size: auto;
+  }
+  section {
+    padding: 2% 0;
   }
 }
 
@@ -80,15 +103,5 @@
     background-image: linear-gradient(to bottom, #f2b900, #ebb400, #e5af00, #deaa00, #d8a500);
   }
 
-  .main-header{
-    background-color: black !important;
-    
-  }
+ 
 
-  .main-bg{
-    background-image: url('../athelete.png');
-    -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  }

@@ -11,11 +11,12 @@ class Home extends Component {
           </header> */}
           </section>
           <section className="intro">
-            <p className="s-style">There is always debate in many circles regarding who is the greates player of all time in any particular sport. GOATS helps you to end the debate. You can store your favorite players according to six core statistics.</p>
+            <p className="s-style">There is always debate in many circles regarding who is the greates player of all time in any particular sport. GOATS helps you to end the debate. You can store your favorite players according to six core statistics. Speak with stats that matter.</p>
           </section>
           <section className="container-box">
-            <h3><a href='/players' className="no-link">View The Top 5 Players in Each Sport
-            this will expand and each sport will come up</a></h3>
+            <h3>
+              <a href='/players' className="no-link">View The Top 5 Players in Each Sport</a>
+            </h3>
           </section>
           <section className="container-box">
             <h3><a href='/myplayers' className="no-link"> My top 5 players in Each Sport 💪</a></h3>
