@@ -204,7 +204,9 @@ class MyGreatPlayers extends Component {
                         </div>
                       </div>
                     </li>)
-                }
+                } else {
+                  return null;
+                } 
               }
               )}
             </ol>
