@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './CreateList.css';
-import config from '../config';
-import { Redirect } from "react-router-dom";
+const {config} = require('../config');
+//import { Redirect } from "react-router-dom";
 
 class CreateList extends Component {
 
@@ -36,7 +36,7 @@ class CreateList extends Component {
         //window.history.back('myplayers');
         //const updateOnSubmit = 
         this.setState(this.initState);
-        this.render();
+        this.forceUpdate();
       })
       .then(data => {
         console.log("data===============>", data)

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './MyGreatPlayers.css';
-import config from '../config';
 import EditList from './EditList';
+const {config} = require('../config');
 class MyGreatPlayers extends Component {
   state = {
     count: 0,
@@ -136,7 +136,7 @@ class MyGreatPlayers extends Component {
   }
   replaceStateContent = (sports)=>{
     const newSports = this.state.sports.map(sport=>{
-      if(sport.id == sports.id){
+      if(sport.id === sports.id){
         return sports;
       }
       return sport;
@@ -191,7 +191,7 @@ class MyGreatPlayers extends Component {
             <h2 className="game-head">Soccer:</h2>
             <p className="game-sub-head">Last Updated: 03.07.2021</p>
             <ol className="list-item">
-              {this.state.sports.map((player, index) =>{
+              {this.state.sports.map((player, index) => {
                 if (index<5) {
                   return(
                     <li key={index} onClick={()=>{this.setEditing(index);console.log(this.state);console.log(index);}}>

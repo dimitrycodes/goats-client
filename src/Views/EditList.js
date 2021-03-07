@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './CreateList.css';
-import config from '../config';
-import { Redirect } from "react-router-dom";
+const {config} = require('../config');
+//import { Redirect } from "react-router-dom";
  
 class EditList extends Component {
  
@@ -51,7 +51,7 @@ class EditList extends Component {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.state)
       };
-      const url = `http://localhost:8000/sports/${this.state.id}`;
+      //const url = `http://localhost:8000/sports/${this.state.id}`;
       const url2 = `${config.API_ENDPOINT}/sports/${this.state.id}`;
  
       fetch(url2, requestOptions).then(res=>res.json).then(console.log);

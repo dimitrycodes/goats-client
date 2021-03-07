@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './GreatestPlayers.css';
-import config from '../config';
+const {config} = require('../config');
 
 class GreatestPlayers extends Component {
   state = {
