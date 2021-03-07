@@ -11,7 +11,7 @@ class Home extends Component {
           </header> */}
           </section>
           <section className="intro">
-            <p className="s-style">There is always debate in many circles regarding who is the greates player of all time in any particular sport. GOATS helps you to end the debate. You can store your favorite players according to six core statistics. Speak with stats that matter.</p>
+            <p className="s-style">There is always debate in many circles regarding who is the greatest player of all time in any particular sport. GOATS helps you to end the debate. You can store your favorite players according to six core statistics. Speak with stats that matter.</p>
           </section>
           <section className="container-box">
             <h3>
