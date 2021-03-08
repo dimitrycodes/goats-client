@@ -17,7 +17,7 @@
 }
 
 .App-header {
-  background-color: #469ef3;
+  background-color: #0857A0;
   /* min-height: 0.5vh; */
   display: flex;
   flex-direction: column;
@@ -37,8 +37,16 @@ a:hover {
   color: #000000;
 }
 
+a:link {
+  color: #fff;
+}
+
+a:visited {
+  color:#fff;
+}
+
 .app-footer {
-  background-color: #469ef3;
+  background-color: #0857A0;/*#469ef3*/
   padding: 15px;
   position: fixed;
   left: 0;

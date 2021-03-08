@@ -72,14 +72,14 @@ class App extends Component {
               </nav> */}
               <a href="/" className="title">GOATS</a>
             </header>
-            <div className="main-container">
+            <main className="main-container">
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/players" component={GreatestPlayers} />
                 <Route exact path="/myplayers" component={MyGreatPlayers} />
                 <Route exact path="/createlist" component={CreateList} />
               </Switch>
-            </div>
+            </main>
             <footer className="app-footer">Dimitry A | <a href='https://github.com/dimitrycodes'>@dimitrycodes</a></footer>
           </Router>
         </div>
